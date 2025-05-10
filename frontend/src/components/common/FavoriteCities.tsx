@@ -47,7 +47,6 @@ function FavoriteCityTablet({
 }: FavoriteCityTabletProps) {
   const navigate = useNavigate();
   const { data: weatherData, isLoading } = useWeatherQuery({ lat, lon });
-  console.log(weatherData);
 
   return (
     <div
