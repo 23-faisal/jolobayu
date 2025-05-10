@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout";
 import { ThemeProvider } from "./components/context/theme-provider";
 import WeatherDashboard from "./pages/WeatherDashboard";
 import CityPage from "./pages/CityPage";
+import { Toaster } from "sonner";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path="/city/:cityName" element={<CityPage />} />
             </Routes>
           </Layout>
+          <Toaster />
         </ThemeProvider>
       </Router>
     </>

@@ -1,4 +1,5 @@
 import CurrentWeather from "@/components/common/CurrentWeather";
+import FavoriteButton from "@/components/common/FavoriteButton";
 import HourlyTemperature from "@/components/common/HourlyTemperature";
 import LoadingSkeleton from "@/components/common/LoadingSkeleton";
 import WeatherDetails from "@/components/common/WeatherDetails";
@@ -44,24 +45,30 @@ const CityPage = () => {
   return (
     <div className="space-y-4 ">
       {/* Favorite Cities */}
-      <div className="flex items-center  gap-4">
-        <h1 className="text-3xl font-bold tracking-tight">{params.cityName}</h1>
-        <span className="text-muted-foreground font-bold tracking-tighter text-lg">
-          {forecastData?.city.country}
-        </span>
-        <img
-          src={`https://flagcdn.com/h20/${forecastData?.city.country.toLowerCase()}.png`}
-          srcSet={`
+
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center  gap-4">
+          <h1 className="text-3xl font-bold tracking-tight">
+            {params.cityName}
+          </h1>
+          <span className="text-muted-foreground font-bold tracking-tighter text-lg">
+            {forecastData?.city.country}
+          </span>
+          <img
+            src={`https://flagcdn.com/h20/${forecastData?.city.country.toLowerCase()}.png`}
+            srcSet={`
     https://flagcdn.com/h40/${forecastData?.city.country.toLowerCase()}.png 2x,
     https://flagcdn.com/h60/${forecastData?.city.country.toLowerCase()}.png 3x
   `}
-          height="20"
-          alt={
-            forecastData?.city.name
-              ? `${forecastData.city.name} flag`
-              : "Country flag"
-          }
-        />
+            height="20"
+            alt={
+              forecastData?.city.name
+                ? `${forecastData.city.name} flag`
+                : "Country flag"
+            }
+          />
+        </div>
+        <FavoriteButton data={{ ...weatherData, name: params.cityName }} />
       </div>
 
       {/* Current and Hourly weather */}
