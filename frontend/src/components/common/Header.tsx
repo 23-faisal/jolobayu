@@ -2,6 +2,7 @@ import logo from "../../../public/logo.webp";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/theme-provider";
 import { Sun, Moon } from "lucide-react";
+import CitySearch from "./CitySearch";
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -17,8 +18,12 @@ const Header = () => {
           <img src={logo} alt="jolubayu" />
         </Link>
 
-        <div>
-          {/* search & theme toggle */}
+        <div className="flex items-center gap-6">
+          {/* search */}
+
+          <div>
+            <CitySearch />
+          </div>
 
           {/* theme toggle */}
           <div
